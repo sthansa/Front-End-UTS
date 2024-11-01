@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistem Informasi Manajemen Karyawan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-dark text-white p-3" id="sidebar">
+        <div class="sidebar-header text-center mb-4">
+            <img src="assets/img/logo.png" alt="Logo" style="width: 50px; height: auto;">
+            <span class="logo-text ml-2">SuthansaAdmin</span>
+        </div>
+        
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-white active" href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="karyawan.html"><i class="fas fa-users"></i> Karyawan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="jabatan.html"><i class="fas fa-briefcase"></i> Jabatan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="divisi.html"><i class="fas fa-sitemap"></i> Divisi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="absensi.html"><i class="fas fa-calendar-check"></i> Absensi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="izin.html"><i class="fas fa-envelope-open"></i> Izin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="lembur.html"><i class="fas fa-clock"></i> Lembur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="penggajian.html"><i class="fas fa-money-bill-wave"></i> Penggajian</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-4" id="main-content">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Dashboard</h2>
+            <div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-light rounded-circle dropdown-toggle mx-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profil.html">Profil</a> <!-- Tautan Profil ke profil.html -->
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-user fa-2x text-primary"></i>
+                        <h5 class="card-title mt-2">Data Pegawai</h5>
+                        <p class="card-text fs-4">13</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-calendar-check fa-2x text-success"></i>
+                        <h5 class="card-title mt-2">Absensi Hari Ini</h5>
+                        <p class="card-text fs-4">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-check-circle fa-2x text-warning"></i>
+                        <h5 class="card-title mt-2">Izin Konfirmasi</h5>
+                        <p class="card-text fs-4">2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-clock fa-2x text-info"></i>
+                        <h5 class="card-title mt-2">Lembur Konfirmasi</h5>
+                        <p class="card-text fs-4">1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Statistics Chart -->
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">User Statistics</h5>
+                <canvas id="userStatisticsChart" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Konfirmasi Log Out -->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutModalLabel">Konfirmasi Log Out</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin keluar dari aplikasi?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <a href="login.html" class="btn btn-danger">Log Out</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- CDN untuk Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Script untuk inisialisasi grafik User Statistics -->
+<script>
+    const ctx = document.getElementById('userStatisticsChart');
+    if (ctx) {
+        const userStatisticsChart = new Chart(ctx, {
+            type: 'line', // Tipe grafik (line chart)
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'User Engagement',
+                    data: [12, 19, 3, 5, 2, 3, 9], // Data contoh
+                    fill: true,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    } else {
+        console.error("Elemen canvas 'userStatisticsChart' tidak ditemukan.");
+    }
+
+    // Fungsi untuk pencarian
+    function searchFunction() {
+        alert("Fungsi pencarian belum diimplementasikan.");
+    }
+
+    // Fungsi untuk menampilkan profil
+    function showProfile() {
+        alert("Profil pengguna belum diimplementasikan.");
+    }
+</script>
+
+</body>
+</html>
